@@ -1,5 +1,3 @@
-# majority_voting.py
-
 from collections import Counter
 from typing import List, Dict
 from .aggregator import Aggregator

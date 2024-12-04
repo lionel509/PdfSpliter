@@ -1,5 +1,3 @@
-# weighted_voting.py
-
 from typing import List, Dict
 from .aggregator import Aggregator
 
