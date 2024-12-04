@@ -1,0 +1,31 @@
+# Core Libraries
+numpy
+pandas
+
+# Machine Learning Frameworks
+scikit-learn
+tensorflow
+torch
+
+# Pre-trained Model Support
+transformers
+
+# Data Processing
+opencv-python
+nltk
+spacy
+
+# Aggregation and Ensemble Techniques
+xgboost
+lightgbm
+
+# Bayesian Inference
+pymc
+
+# Visualization (Optional for debugging and results)
+matplotlib
+seaborn
+
+# Others
+tqdm
+joblib
