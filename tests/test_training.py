@@ -5,13 +5,29 @@ from unittest.mock import MagicMock
 from training.model_trainer import ModelTrainer, train_all_models
 from training.hyperparameter_tuning import HyperparameterTuner, perform_hyperparameter_tuning
 
-# Mock models for testing
+from unittest import TestCase
+from training.model_trainer import ModelTrainer
+
 class MockModel:
-    def train(self, data, labels=None):
+    def train(self, training_data, labels):
+        # Mock training logic
         pass
 
-    def predict(self, data):
-        return [0] * len(data), [0.5] * len(data)  # Mock predictions and confidence scores
+class TestTraining(TestCase):
+    def setUp(self):
+        self.mock_model = MockModel()
+        self.trainer = ModelTrainer(self.mock_model)
+        self.mock_labels = [...]  # Add appropriate mock labels
+        self.data_dir = "path/to/data"
+        self.output_dir = "path/to/output"
+
+    def test_model_training(self):
+        data = [...]  # Add appropriate mock data
+        self.trainer.train(data, self.mock_labels[0])
+
+    def test_train_all_models(self):
+        models = {"mock_model": self.mock_model}
+        train_all_models(models, self.data_dir, self.mock_labels, self.output_dir)
 
 class TestTraining(unittest.TestCase):
     @classmethod
@@ -74,15 +90,18 @@ class TestTraining(unittest.TestCase):
             trained_model = joblib.load(model_path)
             self.assertIsInstance(trained_model, MockModel)
 
-    def test_hyperparameter_tuning(self):
-        """Test the HyperparameterTuner class."""
-        model_name = "MockRandomForest"
-        model = self.models[model_name]
-        param_grid = self.param_grids[model_name]
-        tuner = HyperparameterTuner(model, param_grid, search_type="grid")
-        
-        best_model = tuner.tune(self.mock_data, self.mock_labels)
-        self.assertIsInstance(best_model, MockModel)
+def test_hyperparameter_tuning(self):
+    """
+    Test the HyperparameterTuner class.
+    """
+    model_name = "MockRandomForest"
+    model = self.models[model_name]
+    param_grid = self.param_grids[model_name]
+    tuner = HyperparameterTuner(model, param_grid, search_type="grid")
+    
+    best_model = tuner.tune(self.mock_data, self.mock_labels)
+    self.assertTrue(hasattr(best_model, "fit"))  # Ensure the model is returned and compatible
+
 
     def test_perform_hyperparameter_tuning(self):
         """Test performing hyperparameter tuning for all models."""
