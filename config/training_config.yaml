@@ -1,0 +1,38 @@
+preprocessing:
+  text:
+    tokenizer: "spacy"
+    lower_case: true
+    remove_stopwords: true
+  image:
+    resize: [224, 224]
+    normalize: true
+  tabular:
+    scale: true
+    impute_missing: true
+
+models:
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+  svm:
+    kernel: "rbf"
+    C: 1.0
+  neural_network:
+    layers: [128, 64, 32]
+    activation: "relu"
+  kmeans:
+    n_clusters: 5
+  dbscan:
+    eps: 0.5
+    min_samples: 5
+  bert:
+    model_name: "bert-base-uncased"
+    max_seq_length: 128
+  gpt:
+    model_name: "gpt-3.5-turbo"
+    max_tokens: 150
+
+evaluation:
+  weight_adjuster:
+    learning_rate: 0.1
+    decay_factor: 0.99

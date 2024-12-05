@@ -22,27 +22,21 @@ Ensure you have the following installed on your system:
 - pip (Python package manager)
 
 ### Steps
-
-   ```sh
-   ```sh
-   git clone https://github.com/lionel509/PdfSpliter.git
    ```sh
    git clone https://github.com/lionel509/PdfSpliter.git
    ```
 
-2. Install dependencies:
+1. Install dependencies:
 
-   ```sh
+```sh
    pip install -r requirements.txt
    ```
 
-3. Run the application:
+2. Run the application:\
 
-   ```sh
+```sh
    python app.py
-   ```
-   python app.py
-   ```
+
 
 ## Usage
 
@@ -55,12 +49,12 @@ You can use PdfSpliter via the command line:
 python main.py --input <path-to-pdf> --output <output-format>
 #### Options
 
-#### Options:
+
 
 - `--input`: Specify the path to the input PDF file.
+- '--output': Specify the output format 
 #### Example
 
-#### Example:
 
 ```sh
 python main.py --input example.pdf --output json
@@ -81,13 +75,9 @@ python main.py --input example.pdf --output json
 ### Input PDF
 
 Upload a PDF with the following content:
-### Input PDF
-Upload a PDF with the following content:
 
 ### Output JSON
-```json
 
-### Output JSON
 ```json
 {
   "questions": [
@@ -114,6 +104,7 @@ Contributions are welcome! Follow these steps to contribute:
    ```sh
    git checkout -b feature-name
    ```
+
 1. Commit your changes:
 
    ```sh
